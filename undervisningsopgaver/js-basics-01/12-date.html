@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Din alder</p>
+    <input type="text" id="alder">
+    <p>Din dates alder</p>
+    <input type="text" id="date">
+
+    <button>Klik for at udregne.</button>
+
+    <script>
+        let alder = document.querySelector("#alder").value;
+        let date = document.querySelector("#date").value;
+        const resultat = alder / 2 + 7;
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+
+            if (alder <= 15 || date <= 15) {
+                console.log(`Du eller din date er for ung til at bruge dette program.`)
+            } else if (date == resultat) {
+                console.log(`Du overholder reglerne.`)
+            } else if (date < resultat) {
+                console.log(`Du overholder ikke reglerne.`)
+            } else {
+                console.log(`Du overholder ikke reglerne.`)
+            }
+        }
+
+    </script>
+</body>
+
+</html>
