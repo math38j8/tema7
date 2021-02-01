@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <script>
+        const klokken = new Date().getHours();
+
+        console.log(klokken);
+
+        hilsen();
+
+        function hilsen() {
+            if (klokken >= 5 && klokken < 10) {
+                console.log("Godmorgen");
+            } else if (klokken >= 10 && klokken < 18) {
+                console.log("Goddag");
+            } else if (klokken >= 18 && klokken < 24) {
+                console.log("Godaften");
+            } else {
+                console.log("Godnat");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
