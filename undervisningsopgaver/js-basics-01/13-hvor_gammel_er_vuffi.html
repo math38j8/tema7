@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Din hunds alder</p>
+    <input type="text" id="alder">
+
+    <button>Klik for at udregne.</button>
+
+
+
+    <script>
+        let alder = document.querySelector("#alder").value;
+        const resultat = alder * 7;
+
+        const nytResultat = 16 * Math.log(alder) + 31;
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            console.log(resultat);
+            console.log(nytResultat);
+        }
+
+    </script>
+</body>
+
+</html>
