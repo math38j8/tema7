@@ -20,6 +20,7 @@
         let alder = document.querySelector("#alder").value;
         let date = document.querySelector("#date").value;
         const resultat = alder / 2 + 7;
+        const andetResultat = (alder - 7) * 2;
 
         document.querySelector("button").addEventListener("click", buttonClicked);
 
@@ -31,8 +32,10 @@
                 console.log(`Du overholder reglerne.`)
             } else if (date < resultat) {
                 console.log(`Du overholder ikke reglerne.`)
-            } else {
+            } else if (date > andetResultat) {
                 console.log(`Du overholder ikke reglerne.`)
+            } else {
+                console.log(`Du overholder reglerne.`)
             }
         }
 

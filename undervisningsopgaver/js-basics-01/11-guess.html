@@ -14,13 +14,13 @@
     <button>Klik for at gætte.</button>
 
     <script>
-        let random = Math.round(Math.random() * 20);
+        const random = Math.round(Math.random() * 20);
         let clicks = 0;
 
         document.querySelector("button").addEventListener("click", buttonClicked);
 
         function buttonClicked() {
-            let guess = document.querySelector("#guess").value;
+            const guess = document.querySelector("#guess").value;
             clicks++;
 
             if (guess == random) {
