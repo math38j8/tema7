@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0.5vw;
+        }
+
+        .col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-gap: 2vw;
+        }
+
+        article {
+            border: solid 1px black;
+        }
+
+        header,
+        footer {
+            border: solid 1px black;
+            padding: 10px 0;
+            text-align: center;
+
+
+        }
+
+        img {
+            width: 100%;
+        }
+
+        article+h3 {
+            font-weight: bold;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+        Titel
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Undertitel</h2>
+
+            <div class="col">
+                <article>
+                    <img class="foto1" src="https://placeimg.com/640/480/any">
+                    <h3 id="h3_1">Article 1</h3>
+                    <p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate repudiandae quae labore, officiis ducimus! Dolorem minus optio, expedita hic, nobis quis quod cumque, dicta harum quia quo culpa molestias nesciunt laudantium repellat libero eum. Aut eos nulla, veritatis dignissimos id.</p>
+
+                </article>
+                <article>
+                    <img class="foto2" src="https://placeimg.com/640/480/any" alt="foto">
+                    <h3 id="h3_2">Article 2</h3>
+                    <p id="p2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, temporibus, deserunt! Deleniti laboriosam fuga iure error ipsam qui aperiam id iusto perferendis similique voluptate accusamus suscipit, molestias quaerat aliquid! Minus quibusdam beatae suscipit itaque maxime!</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>This is the footer</p>
+    </footer>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("loaded");
+            document.querySelector(".foto1").addEventListener("click", clickPhoto);
+            document.querySelector(".foto2").addEventListener("click", clickPhoto2);
+
+
+        }
+
+
+        function clickPhoto() {
+            console.log("clicked");
+
+            let foto1 = document.querySelector(".foto1");
+
+            foto1.src = "https://placeimg.com/640/480/any" + Math.random() * 9;
+        }
+
+        function clickPhoto2() {
+            console.log("clicked2");
+
+            let foto2 = document.querySelector(".foto2");
+
+            foto2.src = "https://placeimg.com/640/480/any" + Math.random() * 9;
+        }
+
+    </script>
+</body>
+
+</html>
