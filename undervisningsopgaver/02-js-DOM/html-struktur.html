@@ -10,10 +10,6 @@
             box-sizing: border-box;
         }
 
-        h1 {
-            text-align: center;
-        }
-
         h1,
         h2,
         h3,
@@ -35,6 +31,8 @@
         footer {
             border: solid 1px black;
             padding: 10px 0;
+            text-align: center;
+
 
         }
 
@@ -49,8 +47,7 @@
 
 <body>
     <header>
-        <h1>Titel</h1>
-
+        Titel
     </header>
 
     <main>
@@ -66,7 +63,7 @@
 
                 </article>
                 <article>
-                    <img src="https://placeimg.com/640/480/any">
+                    <img src="https://placeimg.com/640/480/any" alt="foto">
                     <h3>Article 2</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, temporibus, deserunt! Deleniti laboriosam fuga iure error ipsam qui aperiam id iusto perferendis similique voluptate accusamus suscipit, molestias quaerat aliquid! Minus quibusdam beatae suscipit itaque maxime!</p>
                 </article>
@@ -79,11 +76,14 @@
 
 
     <script>
+        const titel = document.querySelector("header");
+        console.log(titel);
 
+        titel.textContent = "Billedgalleri";
+        //        titel.innerHTML = "<h1>Billeder</h1>"
+        const image = document.querySelector("article img");
 
-
-
-
+        image.alt = "ny tekst"
 
     </script>
 </body>
