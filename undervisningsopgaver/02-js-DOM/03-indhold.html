@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0.5vw;
+        }
+
+        .col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-gap: 2vw;
+        }
+
+        article {
+            border: solid 1px black;
+        }
+
+        header,
+        footer {
+            border: solid 1px black;
+            padding: 10px 0;
+            text-align: center;
+
+
+        }
+
+        img {
+            width: 100%;
+        }
+
+        article+h3 {
+            font-weight: bold;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+        Titel
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Undertitel</h2>
+
+            <div class="col">
+                <article>
+                    <img class="foto1" src="https://placeimg.com/640/480/any">
+                    <h3 id="h3_1">Article 1</h3>
+                    <p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate repudiandae quae labore, officiis ducimus! Dolorem minus optio, expedita hic, nobis quis quod cumque, dicta harum quia quo culpa molestias nesciunt laudantium repellat libero eum. Aut eos nulla, veritatis dignissimos id.</p>
+
+                </article>
+                <article>
+                    <img class="foto2" src="https://placeimg.com/640/480/any" alt="foto">
+                    <h3 id="h3_2">Article 2</h3>
+                    <p id="p2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, temporibus, deserunt! Deleniti laboriosam fuga iure error ipsam qui aperiam id iusto perferendis similique voluptate accusamus suscipit, molestias quaerat aliquid! Minus quibusdam beatae suscipit itaque maxime!</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>This is the footer</p>
+    </footer>
+
+
+    <script>
+        const titel = document.querySelector("header");
+        console.log(titel);
+
+
+        titel.textContent = "Overskrift"
+
+        const main = document.querySelector("main");
+        console.log(main);
+
+
+        const section = document.querySelector("section");
+        console.log(section);
+
+        const h2 = document.querySelector("h2");
+        console.log(h2);
+
+
+        const col = document.querySelector(".col");
+        console.log(col);
+
+        const article = document.querySelector("article");
+        console.log(article);
+
+
+        const img = document.querySelector("img");
+        console.log(img);
+
+        const foto1 = document.querySelector(".foto1");
+        console.log(foto1);
+
+        foto1.src = "foto.png";
+        foto1.alt = "aber";
+
+
+        const foto2 = document.querySelector(".foto2");
+        console.log(foto2);
+
+        foto2.src = "foto2.png";
+        foto2.alt = "mathilde";
+
+
+
+        const h31 = document.querySelector("#h3_1");
+        console.log(h3_1);
+
+        h31.textContent = "overskrift 1 ";
+
+        const h32 = document.querySelector("#h3_2");
+        console.log(h3_2);
+
+        h32.innerHTML = "overskrift <br> 21";
+
+
+        const p1 = document.querySelector("#p1");
+        console.log(p1);
+
+        p1.textContent = "Lorem ipsum";
+
+        const p2 = document.querySelector("#p2");
+        console.log(p2);
+
+        p2.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, temporibus, deserunt! Deleniti laboriosam fuga iure error ipsam qui <b>aperiam id iusto perferendis similique voluptate accusamus suscipit, </b>molestias quaerat aliquid! Minus quibusdam beatae suscipit itaque maxime!";
+
+        const footer = document.querySelector("footer");
+        console.log(footer);
+
+    </script>
+</body>
+
+</html>
