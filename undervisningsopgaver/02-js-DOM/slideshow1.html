@@ -20,6 +20,7 @@
     <main>
 
         <section>
+            <img src="billeder/img1.png" alt="billede 1">
             <button>Videre</button>
         </section>
     </main>
@@ -28,52 +29,33 @@
 
 
     <script>
-        document.addEventListener("DOMContentLoaded", start);
+        //Lav tæller
+        let tal = 0;
 
-        function start() {
-            console.log("loaded");
+        //find billeder
+        const billede = document.querySelector("img");
 
-            const fotos = ["foto1", "foto2", "foto3", "foto4", "foto5", "foto6", "foto7", "foto8"];
-
-            let foto1 = document.querySelector("img1.png");
-            let foto2 = document.querySelector("img2.png");
-            let foto3 = document.querySelector("img3.png");
-            let foto4 = document.querySelector("img4.png");
-            let foto5 = document.querySelector("img5.png");
-            let foto6 = document.querySelector("img6.png");
+        //lav array
+        let billeder = ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png", "img7.png", "img8.png"];
 
 
+        // klik for at skifte billede
+        const knap = document.querySelector("button");
+        knap.addEventListener("click", clickNext);
 
+
+        function clickNext() {
+
+            if (tal < 7) {
+                tal++;
+                console.log(billeder[tal]);
+                billede.src = "billeder/" + billeder[tal];
+            } else {
+                tal = 0;
+                billede.src = "billeder/" + billeder[tal];
+            }
 
         }
-
-
-
-
-        //            let mainSection = document.querySelector("section");
-        //
-        //            //nyt billede element
-        //            let img = document.createElement("img");
-        //            //linker til billede
-        //            img.src = "img1.png";
-        //
-        //            //tilføj billede til section
-        //            mainSection.appendChild(img);
-
-
-
-        //
-        //        function clickPhoto2() {
-        //            console.log("clicked2");
-        //            const kategorier = ["animals", "architecture", "people", "nature", "tech"];
-        //
-        //            let foto2 = document.querySelector(".foto2");
-        //
-        //            const nummer = Math.round(Math.random() * 4);
-        //            foto2.src = "https://placeimg.com/640/480/" + kategorier[nummer];
-        //            foto2.alt = kategorier[nummer];
-        //
-        //        }
 
     </script>
 </body>
