@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        article {
+            background-color: #cefcfc;
+            margin: 2vw;
+            padding: 2vw;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section></section>
+    <template>
+        <article>
+            <h1 class="maerke"></h1>
+            <p class="model"></p>
+            <p class="motor"></p>
+            <p class="km"></p>
+            <p>Udstyr</p>
+            <ul class="emneliste"></ul>
+        </article>
+    </template>
+
+
+    <script>
+        let container = document.querySelector("section");
+        let temp = document.querySelector("template");
+
+        const fil = "alleBiler.json";
+
+
+        async function hentdata(fil) {
+            const result = await fetch(fil);
+            const json = await result.json();
+            vis(json);
+        }
+
+        function vis(json) {
+            //løb dyrelisten igennem og indsæt data i template
+            json.forEach(bil => {
+                //placer dyr i HTML
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector(".maerke").textContent = bil.mærke;
+                klon.querySelector(".model").textContent = bil.model;
+                klon.querySelector(".motor").textContent = bil.motor;
+                klon.querySelector(".km").textContent = bil.km;
+
+                bil.udstyr.forEach(udstyr => {
+                    klon.querySelector(".emneliste").innerHTML += "<li>" + udstyr + "</li>";
+                })
+                container.appendChild(klon);
+            })
+        }
+
+        hentdata(fil);
+
+    </script>
+</body>
+
+</html>
