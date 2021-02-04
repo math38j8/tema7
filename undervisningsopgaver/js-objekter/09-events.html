@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        img {
+            width: 100%;
+        }
+
+        .events {
+            margin: 2vw;
+            margin-bottom: 11vw;
+        }
+
+        .liste_container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+
+        /*
+        @media (min-width:600px) {
+            .liste_container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+*/
+
+        @media (min-width:900px) {
+            /*
+            .liste_container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            }
+*/
+
+            h3 {
+                font-size: 1.7rem;
+            }
+
+            .events {
+                margin: 2vw;
+                margin-bottom: 1vw;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section class="liste_container"> </section>
+    <template>
+        <article class="events">
+            <img src="" alt="">
+            <h3></h3>
+            <p class="director"></p>
+        </article>
+    </template>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+
+        let events = [{
+                "navn": "A Calling",
+                "director": "Christian Bengtson",
+                "link": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/W6dOqabNhHKBPXxxKKEZRA84-360.jpg"
+            },
+            {
+                "navn": "A Hole in My Heart",
+                "director": "Mees Peijnenburg",
+                "link": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/Q8K1pZrOs03Q0IrDkBwGVu5r.jpg"
+            },
+            {
+                "navn": "A Place in The Sun",
+                "director": "Christian Zipfel",
+                "link": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/hUd4SdGQ8I23ovxWnGtBz4Ck-360.jpg"
+            },
+            {
+                "navn": "A Tower of Two",
+                "director": "Jakob Krzysztof",
+                "link": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/Zdt2ODEqSVOkNe8nUaSSu8kd-360.jpg"
+            },
+            {
+                "navn": "A Worthy Man",
+                "director": "Kristian Håskjold",
+                "link": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/2iUOgQpixgIQCxyLtY6KiYuU-1280.jpg"
+            },
+
+        ]
+
+        function start() {
+            console.log("loadet");
+            const container = document.querySelector(".liste_container");
+            const eventsTemplate = document.querySelector("template");
+            //løb dyrelisten igennem og indsæt data i template
+            events.forEach(events => {
+                //placer dyr i HTML
+                let klon = eventsTemplate.cloneNode(true).content;
+                klon.querySelector("img").src = events.link;
+                klon.querySelector("h3").textContent = events.navn;
+                klon.querySelector(".director").textContent = `Instruktør: ${events.director}`;
+                container.appendChild(klon);
+
+            })
+
+
+        }
+
+    </script>
+</body>
+
+</html>
