@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        h1 {
+            text-align: center;
+            font-family: helvetica, sans-serif;
+        }
+
+        article {
+            background-color: #fffff5;
+            border: 1px brown solid;
+            margin: 2vw;
+            padding: 2vw;
+            font-family: helvetica, sans-serif;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .liste_container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+
+        @media (min-width:600px) {
+            h2 {
+                font-size: 1rem;
+            }
+
+        }
+
+        @media (min-width:600px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Persongalleri</h1>
+    <section class="liste_container"></section>
+    <template>
+        <article>
+            <h2 class="navn"></h2>
+            <img class="billede" src="" alt="">
+            <p class="date"></p>
+            <p class="titel"></p>
+            <p class="religion"></p>
+            <p class="hobby"></p>
+        </article>
+    </template>
+
+
+    <script>
+        const url = "https://persongalleri-5d3e.restdb.io/rest/persongalleri";
+        const medieurl = "https://persongalleri-5d3e.restdb.io/media/";
+
+
+        const options = {
+            headers: {
+                'x-apikey': "600fe9211346a1524ff12e31"
+            }
+        };
+
+
+        async function hentData() {
+            const respons = await fetch(url, options);
+            const json = await respons.json();
+            vis(json);
+        }
+
+        const container = document.querySelector("section");
+        const template = document.querySelector("template").content;
+
+        const fil = "alleBiler.json";
+
+
+
+        function vis(json) {
+            console.log(json);
+            json.forEach(person => {
+                const klon = template.cloneNode(true);
+                klon.querySelector(".billede").src = medieurl + person.billede;
+                klon.querySelector(".navn").textContent = `${person.fornavn} ${person.efternavn}`;
+                klon.querySelector(".date").textContent = person.fødselsdag;
+                klon.querySelector(".titel").textContent = person.titel;
+                klon.querySelector(".religion").textContent = person.religion;
+                klon.querySelector(".hobby").textContent = person.hobby;
+                container.appendChild(klon);
+            })
+        }
+
+        hentData();
+    </script>
+</body></html>
