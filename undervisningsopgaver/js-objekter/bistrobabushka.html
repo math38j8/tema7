@@ -11,25 +11,42 @@
             font-family: helvetica, sans-serif;
         }
 
+        h2 {
+            font-family: helvetica, sans-serif;
+            text-align: center;
+
+        }
+
+        header h1 {
+            font-size: 1.4rem;
+        }
+
         body {
-            background-color: chocolate;
+            background-color: #fffee7;
         }
 
         article {
-            background-color: #fffff5;
+            background-color: #ffffff;
             border: 1px brown solid;
             margin: 2vw;
             padding: 2vw;
             font-family: helvetica, sans-serif;
+
         }
+
+        .bistro {
+            font-size: 3rem;
+        }
+
+
 
         img {
             width: 100%;
         }
 
-        .liste_container {
+        #liste {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         }
 
 
@@ -50,21 +67,53 @@
             }
         }
 
+        nav {
+            text-align: center;
+        }
+
+        button {
+            background-color: #f0f0f0;
+            border: #1f1f1f solid;
+            font-size: 1rem;
+            border-radius: 3px;
+            width: 10vw;
+            height: 2.2vw;
+        }
+
+        button:hover {
+            background-color: #a52e2e;
+
+        }
+
+        .valgt {
+            background-color: #a52e2e;
+            border: #450909 solid;
+        }
     </style>
 </head>
 
 <body>
+    <h1 class="bistro">BISTRO BABUSHKA</h1>
+    <h2>Menu</h2>
     <header>
-        <h1>BISTRO BABUSHKA</h1>
+        <h1>Alle</h1>
+        <nav>
+            <button data-kategori="alle" class="valgt">Alle</button>
+            <button data-kategori="forretter">Forretter</button>
+            <button data-kategori="hovedretter">Hovedretter</button>
+            <button data-kategori="desserter">Desserter</button>
+            <button data-kategori="sideorders">Sideorders</button>
+            <button data-kategori="drikkevarer">Drikkevarer</button>
 
+        </nav>
     </header>
-    <h1>Menu</h1>
-    <section class="liste_container"></section>
+
+    <section id="liste"></section>
+
     <template>
-        <article>
+        <article class="ret">
             <h2 class="navn"></h2>
             <img class="billede" src="" alt="">
-            <p class="kategori"></p>
             <p class="kort_beskrivelse"></p>
             <p class="oprindelsesregion"></p>
             <p class="pris"></p>
@@ -73,46 +122,64 @@
 
 
     <script>
-        const url = "https://babushka-dd8a.restdb.io/rest/menu";
+        const header = document.querySelector("header h1");
         const medieurl = "https://babushka-dd8a.restdb.io/media/";
-
-
-        const options = {
-            headers: {
-                'x-apikey': "600ec2fb1346a1524ff12de4"
-            }
+        const myHeaders = {
+            'x-apikey': "600ec2fb1346a1524ff12de4"
         };
 
+        document.addEventListener("DOMContentLoaded", start)
+        let retter;
+        let filter = "alle";
 
-        async function hentData() {
-            const respons = await fetch(url, options);
-            const json = await respons.json();
-            vis(json);
+
+        // første funktion der kaldes efter DOM er loaded
+        function start() {
+            const filterKnapper = document.querySelectorAll("nav button");
+            filterKnapper.forEach(knap => knap.addEventListener("click", filtrerRetter));
+            loadJSON();
         }
 
-        const container = document.querySelector("section");
-        const template = document.querySelector("template").content;
 
+        function filtrerRetter() {
+            filter = this.dataset.kategori;
 
+            document.querySelector(".valgt").classList.remove("valgt");
+            this.classList.add("valgt");
 
+            visRetter();
+            header.textContent = this.textContent;
+        }
 
-        function vis(json) {
-            console.log(json);
-            json.forEach(ret => {
-                const klon = template.cloneNode(true);
-                klon.querySelector(".billede").src = medieurl + ret.billede;
-                klon.querySelector(".navn").textContent = ret.navn;
-                klon.querySelector(".kategori").textContent = ret.kategori;
-                klon.querySelector(".kort_beskrivelse").textContent = ret.kortbeskrivelse;
-                klon.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
-                klon.querySelector(".pris").textContent = `${ret.pris} DKK`;
-                container.appendChild(klon);
+        async function loadJSON() {
+            const JSONData = await fetch("https://babushka-dd8a.restdb.io/rest/menu", {
+                headers: myHeaders
+            });
+            retter = await JSONData.json();
+            console.log("retter", retter);
+            visRetter();
+        }
+
+        function visRetter() {
+            const dest = document.querySelector("#liste");
+            const template = document.querySelector("template").content;
+
+            dest.textContent = "";
+
+            retter.forEach(ret => {
+
+                if (filter == ret.kategori || filter == "alle") {
+
+                    const klon = template.cloneNode(true);
+
+                    klon.querySelector(".billede").src = medieurl + ret.billede;
+                    klon.querySelector(".navn").textContent = ret.navn;
+                    klon.querySelector(".kort_beskrivelse").textContent = ret.kortbeskrivelse;
+                    klon.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
+                    klon.querySelector(".pris").textContent = `${ret.pris} DKK`;
+                    dest.appendChild(klon);
+                }
             })
         }
-
-        hentData();
-
     </script>
-</body>
-
-</html>
+</body></html>
