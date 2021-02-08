@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        h1 {
+            text-align: center;
+            font-family: helvetica, sans-serif;
+        }
+
+        body {
+            background-color: chocolate;
+        }
+
+        article {
+            background-color: #fffff5;
+            border: 1px brown solid;
+            margin: 2vw;
+            padding: 2vw;
+            font-family: helvetica, sans-serif;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .liste_container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+
+        @media (min-width:600px) {
+            h2 {
+                font-size: 1rem;
+            }
+
+        }
+
+        @media (min-width:600px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>BISTRO BABUSHKA</h1>
+
+    </header>
+    <h1>Menu</h1>
+    <section class="liste_container"></section>
+    <template>
+        <article>
+            <h2 class="navn"></h2>
+            <img class="billede" src="" alt="">
+            <p class="kategori"></p>
+            <p class="kort_beskrivelse"></p>
+            <p class="oprindelsesregion"></p>
+            <p class="pris"></p>
+        </article>
+    </template>
+
+
+    <script>
+        const url = "https://babushka-dd8a.restdb.io/rest/menu";
+        const medieurl = "https://babushka-dd8a.restdb.io/media/";
+
+
+        const options = {
+            headers: {
+                'x-apikey': "600ec2fb1346a1524ff12de4"
+            }
+        };
+
+
+        async function hentData() {
+            const respons = await fetch(url, options);
+            const json = await respons.json();
+            vis(json);
+        }
+
+        const container = document.querySelector("section");
+        const template = document.querySelector("template").content;
+
+
+
+
+        function vis(json) {
+            console.log(json);
+            json.forEach(ret => {
+                const klon = template.cloneNode(true);
+                klon.querySelector(".billede").src = medieurl + ret.billede;
+                klon.querySelector(".navn").textContent = ret.navn;
+                klon.querySelector(".kategori").textContent = ret.kategori;
+                klon.querySelector(".kort_beskrivelse").textContent = ret.kortbeskrivelse;
+                klon.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
+                klon.querySelector(".pris").textContent = `${ret.pris} DKK`;
+                container.appendChild(klon);
+            })
+        }
+
+        hentData();
+
+    </script>
+</body>
+
+</html>
