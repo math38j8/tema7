@@ -21,8 +21,14 @@
             font-size: 1.4rem;
         }
 
+        header {
+            background-color: #d1efff;
+
+        }
+
         body {
             background-color: #fffee7;
+            margin: 0 auto;
         }
 
         article {
@@ -49,26 +55,37 @@
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         }
 
+        .logo_container {
+            display: flex;
+            justify-content: center;
+        }
 
-        @media (min-width:600px) {
-            h2 {
-                font-size: 1rem;
-            }
+        .logo {
+            width: 50vw;
 
         }
 
-        @media (min-width:600px) {
-            h2 {
-                font-size: 2rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-        }
 
         nav {
             text-align: center;
+        }
+
+        .nav_1 {
+            font-family: helvetica, sans-serif;
+            color: black;
+            font-size: 1.2rem;
+
+        }
+
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+            text-decoration: none;
+
         }
 
         button {
@@ -76,8 +93,9 @@
             border: #1f1f1f solid;
             font-size: 1rem;
             border-radius: 3px;
-            width: 10vw;
-            height: 2.2vw;
+            width: 25vw;
+            height: 7vw;
+            margin: 2vw;
         }
 
         button:hover {
@@ -89,13 +107,78 @@
             background-color: #a52e2e;
             border: #450909 solid;
         }
+
+        @media (min-width:600px) {
+            h2 {
+                font-size: 1rem;
+            }
+
+            button {
+                background-color: #f0f0f0;
+                border: #1f1f1f solid;
+                font-size: 1rem;
+                border-radius: 3px;
+                width: 19vw;
+                height: 4vw;
+                margin: 0.2vw;
+
+            }
+
+            .logo {
+                width: 40vw;
+
+            }
+
+        }
+
+        @media (min-width:900px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            button {
+                background-color: #f0f0f0;
+                border: #1f1f1f solid;
+                font-size: 1rem;
+                border-radius: 3px;
+                width: 10vw;
+                height: 2.2vw;
+                margin: 0.2vw;
+
+            }
+
+            .logo {
+                width: 30vw;
+
+            }
+        }
+
     </style>
 </head>
 
 <body>
-    <h1 class="bistro">BISTRO BABUSHKA</h1>
-    <h2>Menu</h2>
     <header>
+        <div class="nav_1">
+            <nav>
+                <a href="#section">Menu</a>
+                <a href="kontakt">Kontakt</a>
+
+            </nav>
+        </div>
+
+        <div class="logo_container">
+            <img class="logo" src="logo-01.png" alt="logo">
+        </div>
+
+    </header>
+
+    <h2>Menu</h2>
+
+    <section id="section">
         <h1>Alle</h1>
         <nav>
             <button data-kategori="alle" class="valgt">Alle</button>
@@ -106,7 +189,7 @@
             <button data-kategori="drikkevarer">Drikkevarer</button>
 
         </nav>
-    </header>
+    </section>
 
     <section id="liste"></section>
 
@@ -122,7 +205,7 @@
 
 
     <script>
-        const header = document.querySelector("header h1");
+        const header = document.querySelector("#section h1");
         const medieurl = "https://babushka-dd8a.restdb.io/media/";
         const myHeaders = {
             'x-apikey': "600ec2fb1346a1524ff12de4"
@@ -173,6 +256,7 @@
                     const klon = template.cloneNode(true);
 
                     klon.querySelector(".billede").src = medieurl + ret.billede;
+                    klon.querySelector(".billede").alt = `Billede af ${ret.navn}`;
                     klon.querySelector(".navn").textContent = ret.navn;
                     klon.querySelector(".kort_beskrivelse").textContent = ret.kortbeskrivelse;
                     klon.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
@@ -181,5 +265,8 @@
                 }
             })
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
