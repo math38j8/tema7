@@ -6,17 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="detaljer.css">
+    <link rel="stylesheet" href="https://use.typekit.net/spk7ikh.css">
+
+    <link rel="stylesheet" href="https://use.typekit.net/spk7ikh.css">
+
 </head>
 
 <body>
     <section id="section_start"></section>
     <header>
         <div class="header_2">
+            <a href="#section_start"><img src="logo_2.svg" class="lille_logo" alt="logo"></a>
+
             <div class="nav_1">
                 <nav>
-                    <a href="#section">Menu</a>
-                    <a href="#kontakt">Kontakt</a>
-                    <a href="#reserver">Reservér Bord</a>
+                    <a href="bistrobabushka.html#section">Menu</a>
+                    <a href="bistrobabushka.html#kontakt">Kontakt</a>
+                    <a href="bistrobabushka.html#reserver">Reservér Bord</a>
 
                 </nav>
             </div>
@@ -24,17 +30,42 @@
 
 
     </header>
-
-    <article class="ret">
-        <h2 class="navn"></h2>
-        <img class="billede" src="" alt="">
-        <p class="kort_beskrivelse"></p>
-        <p class="lang_beskrivelse"></p>
-        <p class="oprindelsesregion"></p>
-        <p class="pris"></p>
-    </article>
+    <div class="center">
+        <article class="ret">
+            <h2 class="navn"></h2>
+            <img class="billede" src="" alt="">
+            <p class="kort_beskrivelse"></p>
+            <p class="lang_beskrivelse"></p>
+            <p class="oprindelsesregion"></p>
+            <p class="pris"></p>
+        </article>
+    </div>
 
     <button>Tilbage</button>
+
+
+
+    <footer>
+        <div class="footer">
+            <div class="col_1">
+                <p>Cookie- og privatlivspolitik</p>
+                <p>FAQ</p>
+                <p>Smileyrapport</p>
+                <p>Kontakt Os</p>
+                <p>info@babushka.dk</p>
+            </div>
+            <div class="col_1">
+                <p>Åbningstider:</p>
+                <p>Mandag – søndag</p>
+                <p>12 – 22</p>
+            </div>
+            <div class="col_1">
+                <p>Turesensgade 10</p>
+                <p>1368 København</p>
+                <p>+45 00 00 00 00</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -64,7 +95,7 @@
             document.querySelector(".navn").textContent = ret.navn;
             document.querySelector(".billede").src = medieurl + ret.billede;
             document.querySelector(".lang_beskrivelse").textContent = ret.langbeskrivelse;
-            document.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
+            document.querySelector(".oprindelsesregion").textContent = `Oprindelsesregion: ${ret.oprindelsesregion}`;
             document.querySelector(".pris").textContent = `${ret.pris} DKK`;
 
             document.querySelector("button").addEventListener("click", tilbageTilMenu);

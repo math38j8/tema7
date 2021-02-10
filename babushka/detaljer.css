@@ -2,6 +2,7 @@
   body {
       background-color: #FFFAF5;
       margin: 0 auto;
+
   }
 
   img {
@@ -55,46 +56,21 @@
 
 
   /*HEADER*/
-  header {
-      /*    background: white;*/
-      background: rgba(255, 255, 255, 0.5);
+
+  .lille_logo {
+      width: 4vw;
       position: absolute;
-      width: 100%;
-      height: 100vh;
-      z-index: 1;
-      overflow: hidden;
-
-
+      top: 2vw;
+      left: 2vw;
+      z-index: 5;
   }
 
   .header_2 {
+      top: 0;
       width: 100%;
       height: 10vw;
       background: white;
       position: fixed;
-  }
-
-  .splash {
-      width: 100%;
-      height: 100vh;
-      background-image: url(splash.jpg);
-      background-size: cover;
-      background-position: 42% 10%;
-      background-size: 1370px 837px, auto;
-      background-repeat: no-repeat;
-      max-width: none;
-      position: relative;
-
-  }
-
-  .logo_container {
-      margin-top: 53vw;
-      text-align: center;
-  }
-
-  .logo {
-      width: 89vw;
-
   }
 
   .nav_1 {
@@ -103,7 +79,7 @@
       font-size: 1.2rem;
       position: relative;
       top: 3.5vw;
-      left: -9vw;
+      left: -1vw;
 
   }
 
@@ -115,12 +91,19 @@
 
   /*MENU*/
   article {
-      background-color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.7);
       border: 1px brown solid;
       margin: 2vw;
       padding: 2vw;
       font-family: helvetica, sans-serif;
+      border-radius: 10px;
+      margin-top: 13vw;
 
+  }
+
+  .center {
+      display: flex;
+      justify-content: center;
   }
 
   #liste {
@@ -134,17 +117,18 @@
   }
 
   button {
-      background-color: #f0f0f0;
-      border: #1f1f1f solid;
+      background-color: #fdfdfd;
+      border: brown solid 1px;
       font-size: 1rem;
-      border-radius: 3px;
+      border-radius: 6px;
       width: 25vw;
       height: 7vw;
       margin: 2vw;
+      margin-bottom: 5vw;
   }
 
   button:hover {
-      background-color: #a52e2e;
+      background-color: #fff7f7;
 
   }
 
@@ -168,83 +152,6 @@
 
   }
 
-
-  /*KONTAKT*/
-  .kontakt {
-      background: white;
-      padding: 1vw;
-      margin: 2vw;
-  }
-
-  .kolonner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-  }
-
-  .lokation {
-      width: 9vw;
-  }
-
-  .time {
-      width: 7vw;
-      margin-top: 1vw;
-  }
-
-
-
-  /*RESERVER BORD*/
-  .reserver {
-      background: white;
-      padding: 1vw;
-      margin: 2vw;
-  }
-
-  .boks {
-      background: #dddddd;
-      width: 80vw;
-      height: 5vw;
-  }
-
-
-
-  .reserver button {
-
-      background-color: #f0f0f0;
-      border: #1f1f1f solid;
-      font-size: 1rem;
-      border-radius: 3px;
-      width: 25vw;
-      height: 7vw;
-      margin: 2vw;
-  }
-
-  .reserver button:hover {
-      background-color: #dedede;
-
-  }
-
-
-  /*TIL TOPPEN*/
-  .container {
-      display: flex;
-      justify-content: center;
-  }
-
-  .tiltoppen {
-      width: 19vw;
-      height: 19vw;
-      background-color: #ffd5d5;
-      margin: 4vw;
-      display: grid;
-      align-items: center;
-      text-align: center;
-      border-radius: 40px;
-  }
-
-  .tiltoppen .tekst p {
-      text-align: center;
-      margin: 0 auto;
-  }
 
 
   /*FOOTER*/
@@ -270,6 +177,10 @@
 
   @media (min-width:600px) {
 
+      img {
+          width: 90%;
+      }
+
       /*    TEKSTER*/
       h2 {
           font-size: 1rem;
@@ -277,32 +188,40 @@
 
       /*    MENU*/
       button {
-          background-color: #f0f0f0;
-          border: #1f1f1f solid;
+
           font-size: 1rem;
-          border-radius: 3px;
+
           width: 19vw;
           height: 4vw;
           margin: 0.2vw;
+          margin-left: 8vw;
+          margin-bottom: 4vw;
+
+      }
+
+      article {
+          text-align: center;
+          width: 80vw;
+          margin-top: 10vw;
 
       }
 
       /*    HEADER*/
+
+      .lille_logo {
+          width: 3vw;
+
+          top: 1vw;
+          left: 2vw;
+
+      }
+
       .header_2 {
           width: 100%;
           height: 7vw;
 
       }
 
-      .logo {
-          width: 67vw;
-
-      }
-
-      .logo_container {
-          margin-top: 26vw;
-          text-align: center;
-      }
 
       .nav_1 {
           font-family: helvetica, sans-serif;
@@ -310,48 +229,11 @@
           font-size: 1.5rem;
           position: relative;
           top: 2.5vw;
-          left: -17vw;
+          left: -10vw;
       }
 
       .nav_1 a {
           margin: 4vw;
-      }
-
-      header {
-          height: 100vh;
-      }
-
-      .splash {
-          width: 100%;
-          height: 100vh;
-          background-image: url(splash.jpg);
-          background-size: cover;
-          background-position: 48% 10%;
-          max-width: none;
-      }
-
-      /*    \KONTAKT*/
-      .columns #maps img {
-          width: 80%;
-      }
-
-      .kontakt {
-          text-align: center;
-      }
-
-      .lokation {
-          width: 4vw;
-      }
-
-      .time {
-          width: 4vw;
-      }
-
-      /*    til toppen*/
-      .tiltoppen {
-          width: 10vw;
-          height: 10vw;
-
       }
   }
 
@@ -369,30 +251,33 @@
       /*    MENU*/
 
       button {
-          background-color: #f0f0f0;
-          border: #1f1f1f solid;
-          font-size: 1rem;
-          border-radius: 3px;
-          width: 10vw;
-          height: 2.2vw;
+
+          width: 11vw;
+          height: 3.2vw;
           margin: 0.2vw;
+          margin-left: 23vw;
+          margin-bottom: 3vw;
+
+      }
+
+      article {
+          margin-top: -87vw;
+          text-align: center;
+          width: 50vw;
+          margin-top: 7vw;
 
       }
 
       /*    HEADER*/
-      .logo {
-          width: 47vw;
+
+      .lille_logo {
+          width: 2vw;
+
+          top: 0.3vw;
+          left: 2vw;
 
       }
 
-      .logo_container {
-          margin-top: 11vw;
-      }
-
-      header {
-
-          height: 100vh;
-      }
 
       .header_2 {
           width: 100%;
@@ -402,7 +287,7 @@
 
       .nav_1 {
           top: 1.2vw;
-          left: -32vw;
+          left: -21vw;
           font-size: 1.5rem;
       }
 
@@ -410,60 +295,6 @@
           margin: 3vw;
       }
 
-      .splash {
-          width: 100%;
-          height: 100vh;
-          background-image: url(splash.jpg);
-          background-size: cover;
-          background-position: 23% 83%;
-          max-width: none;
-      }
-
-      /*    \KONTAKT*/
-      /*
-    .kontakt img {
-        width: 80%;
-    }
-*/
-
-      .columns {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-      }
-
-      .kolonner {
-          grid-template-columns: 1fr;
-          text-align: left;
-          margin-left: 18vw;
-      }
-
-      .lokation {
-          width: 3.5vw;
-      }
-
-      .time {
-          width: 2.5vw;
-          margin-left: 0.5vw;
-      }
-
-      /*    RESERVER*/
-      .boks {
-          background: #dddddd;
-          width: 50vw;
-          height: 3vw;
-      }
-
-      .reserver button {
-
-          background-color: #f0f0f0;
-          border: #1f1f1f solid;
-          font-size: 1.3rem;
-          border-radius: 3px;
-          width: 10vw;
-          height: 3vw;
-          margin: 0vw;
-          margin-top: 2vw;
-      }
 
 
       /*FOOTER*/

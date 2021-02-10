@@ -20,6 +20,8 @@
     <section id="section_start"></section>
     <header>
         <div class="header_2">
+            <a href="#section_start"><img src="logo_2.svg" class="lille_logo" alt="logo"></a>
+
             <div class="nav_1">
                 <nav>
                     <a href="#section">Menu</a>
@@ -30,16 +32,14 @@
             </div>
         </div>
         <div class="logo_container">
-            <a href="#section_start"><img class="logo" src="logo-01.png" alt="logo"></a>
+            <img class="logo" src="logo-01.png" alt="logo">
         </div>
 
     </header>
-    <div class="splash">
-
-    </div>
+    <div class="splash"> </div>
 
     <section id="section">
-
+        <h1> </h1>
         <h1>Menu</h1>
 
         <h2>Alle Retter</h2>
@@ -58,8 +58,8 @@
 
     <template>
         <article class="ret">
-            <h2 class="navn"></h2>
             <img class="billede" src="" alt="">
+            <h2 class="navn"></h2>
             <p class="kort_beskrivelse"></p>
             <p class="oprindelsesregion"></p>
             <p class="pris"></p>
@@ -211,7 +211,7 @@
                     klon.querySelector(".billede").alt = `Billede af ${ret.navn}`;
                     klon.querySelector(".navn").textContent = ret.navn;
                     klon.querySelector(".kort_beskrivelse").textContent = ret.kortbeskrivelse;
-                    klon.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
+                    klon.querySelector(".oprindelsesregion").textContent = `Oprindelsesregion: ${ret.oprindelsesregion}`;
                     klon.querySelector(".pris").textContent = `${ret.pris} DKK`;
                     klon.querySelector(".ret").addEventListener("click", () => visDetaljer(ret));
 
