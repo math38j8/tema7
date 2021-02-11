@@ -10,8 +10,16 @@
 
     <link rel="stylesheet" href="https://use.typekit.net/spk7ikh.css">
 
-
-
+    <!--FAVICON-->
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
 
 
 </head>
@@ -20,14 +28,13 @@
     <section id="section_start"></section>
     <header>
         <div class="header_2">
-            <a href="#section_start"><img src="logo_2.svg" class="lille_logo" alt="logo"></a>
+            <a href="#section_start"><img src="titel.svg" class="lille_logo" alt="logo"></a>
 
             <div class="nav_1">
                 <nav>
                     <a href="#section">Menu</a>
                     <a href="#kontakt">Kontakt</a>
                     <a href="#reserver">Reservér Bord</a>
-
                 </nav>
             </div>
         </div>
@@ -58,7 +65,12 @@
 
     <template>
         <article class="ret">
-            <img class="billede" src="" alt="">
+            <div class="tainer">
+                <img class="billede" src="" alt="">
+                <div class="overlay">
+                    <div class="text">Læs mere</div>
+                </div>
+            </div>
             <h2 class="navn"></h2>
             <p class="kort_beskrivelse"></p>
             <p class="oprindelsesregion"></p>
@@ -66,73 +78,101 @@
         </article>
     </template>
 
-    <section id="kontakt">
-        <div class="kontakt">
-            <h1>Kontakt</h1>
-            <div class="columns">
-                <div class="col">
-                    <img src="maps.png" id="maps" alt="beliggenhed">
+    <section id="kontakt"></section>
+    <div class="kontakt">
+        <h1>Kontakt</h1>
+        <div class="columns">
+            <div class="col">
+                <img src="maps.png" id="maps" alt="beliggenhed">
+            </div>
+            <div class="kolonner">
+                <div class="col_1">
+                    <img class="lokation" src="location.png" alt="lokationsikon">
+                    <p>Turesensgade 10</p>
+                    <p>1368 København</p>
+                    <p>+45 00 00 00 00</p>
                 </div>
-                <div class="kolonner">
-                    <div class="col_1">
-                        <img class="lokation" src="location.png" alt="lokationsikon">
-                        <p>Turesensgade 10</p>
-                        <p>1368 København</p>
-                        <p>+45 00 00 00 00</p>
-                    </div>
 
-                    <div class="col_1">
-                        <img class="time" src="open.png" alt="åbningstiderikon">
-                        <p>Åbningstider:</p>
-                        <p>Mandag – søndag</p>
-                        <p>12 – 22</p>
-
-                    </div>
-                    <p>info@babushka.dk</p>
+                <div class="col_1">
+                    <img class="time" src="open.png" alt="åbningstiderikon">
+                    <p>Åbningstider:</p>
+                    <p>Mandag – søndag</p>
+                    <p>12 – 22</p>
 
                 </div>
+                <section id="reserver"> </section>
+
+                <p>info@babushka.dk</p>
+
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="reserver">
-        <div class="reserver">
-            <h1>Reservér bord</h1>
-            <p>Udfyld her, og vi vender tilbage hurtigst muligt</p>
-            <div class="boks">
-                <p>Navn</p>
+
+
+    <div class="reserver">
+        <h1>Reservér bord</h1>
+        <p>Udfyld her, og vi vender tilbage hurtigst muligt</p>
+
+        <form>
+            <div class="form-felt">
+                <label for="full-name"></label>
+                <input placeholder="Navn" id="full-name" name="fname" type="text">
             </div>
-            <div class="boks">
-                <p>E-mail</p>
+
+            <div class="form-felt">
+                <label for="email"></label>
+                <input placeholder="E-mail" id="email" name="email" type="email">
             </div>
-            <div class="boks">
-                <p>Mobil</p>
+
+            <div class="form-felt">
+                <label for="mobil"></label>
+                <input placeholder="Mobil" id="mobil" name="mobil" type="tel">
             </div>
-            <div class="boks">
-                <p>Tidspunkt</p>
+
+            <div class="form-felt">
+                <label for="dato"></label>
+                <input placeholder="Dato" id="dato" name="dato" type="date">
             </div>
-            <div class="boks">
-                <p>Antal gæster</p>
+
+            <div class="form-felt">
+                <label for="tidspunkt"></label>
+                <input placeholder="Tidspunkt" id="tidspunkt" name="tidspunkt" type="number">
+            </div>
+
+            <div class="form-felt">
+                <label for="guests"></label>
+                <input placeholder="Antal gæster" id="guests" name="guests" type="number">
             </div>
 
             <button>Reservér</button>
 
+        </form>
 
-            <p><strong>Vi glæder os til at se jer!</strong></p>
-        </div>
 
-    </section>
 
-    <a href="#section_start">
-        <div class="container">
-            <div class="tiltoppen">
+
+
+        <p><strong>Vi glæder os til at se jer!</strong></p>
+    </div>
+
+
+
+
+
+    <div class="container">
+
+        <div class="tiltoppen">
+            <a href="#section_start">
                 <div class="tekst">
                     <p>Til </p>
                     <p>toppen</p>
                 </div>
-            </div>
+            </a>
         </div>
-    </a>
+
+    </div>
+
 
 
     <footer>
@@ -153,6 +193,8 @@
                 <p>Turesensgade 10</p>
                 <p>1368 København</p>
                 <p>+45 00 00 00 00</p>
+                <img src="facebook.svg" class="facebook" alt="facebook">
+                <img src="instagram.svg" class="instagram" alt="instagram">
             </div>
         </div>
     </footer>
@@ -173,6 +215,7 @@
             const filterKnapper = document.querySelectorAll("nav button");
             filterKnapper.forEach(knap => knap.addEventListener("click", filtrerRetter));
             loadJSON();
+            document.querySelector(".tiltoppen").classList.add("pulse");
         }
 
 

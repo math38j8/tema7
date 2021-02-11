@@ -58,10 +58,10 @@
   /*HEADER*/
 
   .lille_logo {
-      width: 4vw;
+      width: 20vw;
       position: absolute;
-      top: 2vw;
-      left: 2vw;
+      top: 1.5vw;
+      left: 0.5vw;
       z-index: 5;
   }
 
@@ -79,7 +79,7 @@
       font-size: 1.2rem;
       position: relative;
       top: 3.5vw;
-      left: -1vw;
+      left: 11vw;
 
   }
 
@@ -171,6 +171,14 @@
       font-size: 0.7rem;
   }
 
+  .facebook {
+      width: 6vw;
+  }
+
+  .instagram {
+      width: 6vw;
+  }
+
 
 
 
@@ -209,9 +217,8 @@
       /*    HEADER*/
 
       .lille_logo {
-          width: 3vw;
-
-          top: 1vw;
+          width: 16vw;
+          top: 0.8vw;
           left: 2vw;
 
       }
@@ -229,11 +236,20 @@
           font-size: 1.5rem;
           position: relative;
           top: 2.5vw;
-          left: -10vw;
+          left: 4vw;
       }
 
       .nav_1 a {
           margin: 4vw;
+      }
+
+      /*      FOOTER*/
+      .facebook {
+          width: 4vw;
+      }
+
+      .instagram {
+          width: 4vw;
       }
   }
 
@@ -271,10 +287,9 @@
       /*    HEADER*/
 
       .lille_logo {
-          width: 2vw;
-
+          width: 10vw;
           top: 0.3vw;
-          left: 2vw;
+          left: 1vw;
 
       }
 
@@ -287,7 +302,7 @@
 
       .nav_1 {
           top: 1.2vw;
-          left: -21vw;
+          left: -16vw;
           font-size: 1.5rem;
       }
 
@@ -312,6 +327,14 @@
       .footer p {
           font-family: helvetica, sans-serif;
           font-size: 1rem;
+      }
+
+      .facebook {
+          width: 3vw;
+      }
+
+      .instagram {
+          width: 3vw;
       }
 
       /*    til toppen*/
